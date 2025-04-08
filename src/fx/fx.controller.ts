@@ -23,6 +23,10 @@ export class FxController {
     status: 200,
     description: 'Fx Rates Fetched',
   })
+  @ApiResponse({
+    status: 401,
+    description: 'Unable to fetch rate',
+  })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   async getRates() {
     const data = await this.fxService.getRates();

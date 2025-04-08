@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { WalletModule } from './wallet/wallet.module';
 import { FxModule } from './fx/fx.module';
 import { TradingModule } from './trading/trading.module';
+import { TransactionsModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { TradingModule } from './trading/trading.module';
     WalletModule,
     FxModule,
     TradingModule,
+    TransactionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

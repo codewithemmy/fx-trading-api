@@ -25,11 +25,13 @@ import { AddFundDto } from './dto/create-wallet.dto';
 @ApiBearerAuth()
 export class WalletController {
   constructor(private readonly walletService: WalletService) {}
+
   @Get()
   @ApiOperation({
     summary: 'Fetch wallet balance',
   })
   @ApiResponse({ status: 200, description: 'Balance retrieved successfully' })
+  @ApiResponse({ status: 400, description: 'Error fetching balance' })
   async getBalances(@Req() req: any) {
     const user = req.user as { userId: string };
     const data = await this.walletService.getBalances(user.userId);
@@ -44,6 +46,8 @@ export class WalletController {
   @Post('fund')
   @ApiOperation({ summary: 'Initiate wallet funding' })
   @ApiBody({ type: AddFundDto })
+  @ApiResponse({ status: 200, description: 'Redirect to Paystack for payment' })
+  @ApiResponse({ status: 400, description: 'Error initializing payment' })
   async fundWallet(@Req() req: any, @Body() body: { amount: number }) {
     const { userId, email } = req.user;
     const data = await this.walletService.fundWallet(

@@ -28,7 +28,7 @@ export class AuthController {
     });
   }
 
-  @Post('verify-otp')
+  @Post('verify')
   @ApiOperation({ summary: 'Verify OTP for user' })
   @ApiBody({ type: VerifyOtpDto })
   @ApiResponse({ status: 200, description: 'OTP verified successfully' })

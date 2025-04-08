@@ -19,7 +19,7 @@ export class Wallet {
   @Column({ type: 'enum', enum: ['NGN', 'USD', 'EUR'] })
   currency: 'NGN' | 'USD' | 'EUR';
 
-  @Column({ type: 'decimal', precision: 15, scale: 2, default: 0 })
+  @Column({ type: 'decimal', default: 0 })
   balance: number;
 
   @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })

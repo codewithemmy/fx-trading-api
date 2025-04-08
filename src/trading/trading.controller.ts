@@ -12,6 +12,7 @@ import { ConvertDto } from './dto/ConvertDto';
 import { successResponse } from 'src/core/config/response';
 import {
   ApiBearerAuth,
+  ApiBody,
   ApiOperation,
   ApiResponse,
   ApiTags,
@@ -28,7 +29,9 @@ export class TradingController {
   @ApiOperation({
     summary: 'Trade or convert currencies',
   })
+  @ApiBody({ type: ConvertDto })
   @ApiResponse({ status: 200, description: 'Trade/conversion successful' })
+  @ApiResponse({ status: 400, description: 'Error during conversion/trader' })
   async convert(@Req() req: any, @Body() convertDto: ConvertDto) {
     const { userId } = req.user;
     const { from, to, amount } = convertDto;

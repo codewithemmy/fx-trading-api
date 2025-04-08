@@ -9,7 +9,11 @@ import { Repository } from 'typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { User } from 'src/user/entities/user.entity';
 import { CreateUserDto, VerifyDto } from 'src/user/dto/create-user.dto';
-import { AlphaNumeric, hashPassword } from 'src/core/common/utils/utility';
+import {
+  AlphaNumeric,
+  comparePassword,
+  hashPassword,
+} from 'src/core/common/utils/utility';
 import { MailService } from 'src/core/mail/email';
 import { ResendOtpDto } from 'src/user/dto/verify-otp.dto';
 import { Wallet } from 'src/wallet/entities/wallet.entity';
@@ -164,8 +168,8 @@ export class AuthService {
         ],
       });
 
-      if (!user) {
-        throw new NotFoundException('User not found');
+      if (!user || !(await comparePassword(password, user.password))) {
+        throw new BadRequestException('Invalid email or password');
       }
 
       if (user && !user.isVerified) {

@@ -29,8 +29,8 @@ export class FxService {
       return rate;
     } catch (error) {
       throw new HttpException(
-        error?.message || 'Wallet funding failed',
-        error?.status || 500,
+        error?.response?.message ?? error?.message,
+        error?.status ?? error?.statusCode ?? 500,
       );
     }
   }
@@ -62,8 +62,8 @@ export class FxService {
       return result;
     } catch (error) {
       throw new HttpException(
-        error?.message || 'Wallet funding failed',
-        error?.status || 500,
+        error?.response?.message ?? error?.message,
+        error?.status ?? error?.statusCode ?? 500,
       );
     }
   }
