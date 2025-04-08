@@ -79,11 +79,6 @@ The API is hosted at:
 Explore the interactive Swagger UI for detailed endpoint descriptions, request/response schemas, and testing:  
 [**Swagger Docs**](https://musicbookingapi.onrender.com/docs)
 
-### Postman Documentation
-
-Access the Postman collection for a comprehensive set of API requests with examples:  
-[**Postman Docs**](https://documenter.getpostman.com/view/23195379/2sB2cRE5Jd)
-
 ## GitHub Repository
 
 The source code is available at:  
@@ -109,7 +104,7 @@ $ npm run start:prod
 
 ## Environment Variables
 
-- `PORT`: Server port (default: 7000).
+- `PORT`: Server port (default: 5000).
 - `POSTGRES_USER`: posgres user name.
 - `POSTGRES_PASSWORD`: postgres password.
 - `POSTGRES_DATABASE`: postgres database basae e.g neon.
@@ -155,48 +150,6 @@ Below is a summary of the key endpoints. Refer to the Swagger or Postman documen
 | `/bookings/:id`       | DELETE     | Cancel a booking                                  | Yes (JWT)     |
 
 - **Protected Endpoints**: Require a Bearer token in the `Authorization` header, obtained from `/auth/login`.
-
----
-
-## project structure
-
-fx-trading-app/
-├── src/
-│ ├── auth/
-│ │ ├── auth.module.ts
-│ │ ├── auth.controller.ts
-│ │ ├── auth.service.ts
-│ │ └── dto/
-│ ├── wallet/
-│ │ ├── wallet.module.ts
-│ │ ├── wallet.controller.ts
-│ │ ├── wallet.service.ts
-│ │ └── entities/wallet.entity.ts
-│ ├── fx/
-│ │ ├── fx.module.ts
-│ │ ├── fx.controller.ts
-│ │ ├── fx.service.ts
-│ │ └── fx.cache.ts
-│ ├── trading/
-│ │ ├── trading.module.ts
-│ │ ├── trading.controller.ts
-│ │ ├── trading.service.ts
-│ │ └── dto/
-│ ├── transactions/
-│ │ ├── transactions.module.ts
-│ │ ├── transactions.controller.ts
-│ │ ├── transactions.service.ts
-│ │ └── entities/transaction.entity.ts
-│ ├── common/
-│ │ ├── guards/auth.guard.ts
-│ │ ├── interceptors/error.interceptor.ts
-│ │ └── utils/validation.pipe.ts
-│ └── main.ts
-├── test/
-├── README.md
-├── package.json
-├── .env
-└── docker-compose.yml
 
 ## License
 
