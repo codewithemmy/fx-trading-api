@@ -125,29 +125,18 @@ $ npm run start:prod
 
 Below is a summary of the key endpoints. Refer to the Swagger or Postman documentation for full details.
 
-| **Endpoint**          | **Method** | **Description**                                   | **Protected** |
-| --------------------- | ---------- | ------------------------------------------------- | ------------- |
-| `/auth/login`         | POST       | Authenticate a user or artist                     | No            |
-| `/users`              | POST       | Create a new user                                 | No            |
-| `/users`              | GET        | Get all users                                     | Yes (JWT)     |
-| `/users/:id`          | GET        | Get a user by ID                                  | Yes (JWT)     |
-| `/users/profile/me`   | GET        | Get logged-in user profile                        | Yes (JWT)     |
-| `/users/profile/me`   | PATCH      | Update logged-in user profile (excluding email)   | Yes (JWT)     |
-| `/artists`            | POST       | Create a new artist                               | No            |
-| `/artists`            | GET        | Get all artists                                   | No            |
-| `/artists/:id`        | GET        | Get an artist by ID                               | No            |
-| `/artists/profile/me` | GET        | Get logged-in artist profile                      | Yes (JWT)     |
-| `/artists/profile/me` | PATCH      | Update logged-in artist profile (excluding email) | Yes (JWT)     |
-| `/events`             | POST       | Create a new event                                | Yes (JWT)     |
-| `/events`             | GET        | Get all events                                    | No            |
-| `/events/:id`         | GET        | Get an event by ID                                | No            |
-| `/events/:id`         | PATCH      | Update an event                                   | No            |
-| `/events/:id`         | DELETE     | Delete an event                                   | No            |
-| `/bookings`           | POST       | Create a new booking                              | Yes (JWT)     |
-| `/bookings`           | GET        | Get all bookings                                  | Yes (JWT)     |
-| `/bookings/:id`       | GET        | Get a booking by ID                               | Yes (JWT)     |
-| `/bookings/:id`       | PATCH      | Update a booking                                  | Yes (JWT)     |
-| `/bookings/:id`       | DELETE     | Cancel a booking                                  | Yes (JWT)     |
+| **Endpoint**            | **Method** | **Description**               | **Protected** |
+| ----------------------- | ---------- | ----------------------------- | ------------- |
+| `/auth/register`        | POST       | User Registeration            | No            |
+| `/auth/verify`          | POST       | User otp verification         | No            |
+| `/auth/resend-otp`      | POST       | Resend user otp               | No            |
+| `/auth/login`           | POST       | User Login                    | No            |
+| `/wallet`               | GET        | User Multi wallet             | Yes (JWT)     |
+| `/wallet/fund`          | POST       | Fund user wallet              | Yes (JWT)     |
+| `/fx/rates`             | GET        | Fetch all exchange rates      | Yes (JWT)     |
+| `/fx/rate/single`       | GET        | Fetch specific exchange rates | Yes (JWT)     |
+| `/wallet/convert/trade` | POST       | Trade or convert currencies   | Yes (JWT)     |
+| `/transactions`         | GET        | Fetch all transactions        | Yes (JWT)     |
 
 - **Protected Endpoints**: Require a Bearer token in the `Authorization` header, obtained from `/auth/login`.
 
