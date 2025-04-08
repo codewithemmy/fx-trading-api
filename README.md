@@ -70,14 +70,14 @@ TFx Trading App API allows users to register , get verified and is able to get r
 ## Base URL
 
 The API is hosted at:  
-**`https://musicbookingapi.onrender.com`**
+**`https://fx-trading-app.onrender.com`**
 
 ## API Documentation
 
 ### Swagger Documentation
 
 Explore the interactive Swagger UI for detailed endpoint descriptions, request/response schemas, and testing:  
-[**Swagger Docs**](https://musicbookingapi.onrender.com/docs)
+[**Swagger Docs**](https://fx-trading-app.onrender.com/docs)
 
 ## GitHub Repository
 
