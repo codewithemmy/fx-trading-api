@@ -12,11 +12,17 @@ import {
 } from '@nestjs/common';
 import { TransactionsService } from './transaction.service';
 import { JwtAuthGuard } from 'src/core/guards/jwt-auth.guard';
-import { ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { successResponse } from 'src/core/config/response';
 import { Response } from 'express';
 
 @Controller('transactions')
+@ApiTags('Transactions')
 export class TransactionsController {
   constructor(private readonly transactionsService: TransactionsService) {}
 
